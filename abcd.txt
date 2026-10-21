@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+
+    <style>
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f1f8;
+            color: #333;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        /* =========================================
+           STARTING ROLE SELECTION
+        ========================================= */
+
+        .role-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4b2e83, #8e44ad);
+        }
+
+        .role-box {
+            width: 500px;
+            padding: 45px;
+            background: white;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .role-box h1 {
+            color: #4b2e83;
+            margin-bottom: 10px;
+        }
+
+        .role-box p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .role-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .role-button {
+            width: 180px;
+            padding: 25px 15px;
+            border: none;
+            border-radius: 12px;
+            background: #4b2e83;
+            color: white;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .role-button:hover {
+            background: #321d59;
+            transform: translateY(-3px);
+        }
+
+        .role-button span {
+            display: block;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           LOGIN / REGISTER
+        ========================================= */
+
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4b2e83, #8e44ad);
+        }
+
+        .auth-box {
+            width: 400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-box h1 {
+            color: #4b2e83;
+            margin-bottom: 8px;
+        }
+
+        .auth-box h2 {
+            margin: 25px 0 20px;
+        }
+
+        .auth-box input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .auth-box button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #4b2e83;
+            color: white;
+            font-size: 16px;
+        }
+
+        .auth-box button:hover {
+            background: #321d59;
+        }
+
+        .switch-text {
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .switch-text span {
+            color: #4b2e83;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-button {
+            margin-top: 15px !important;
+            background: #777 !important;
+        }
+
+        .admin-info {
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #f1eafb;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           DASHBOARD LAYOUT
+        ========================================= */
+
+        .dashboard {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            padding: 30px 20px;
+            background: #4b2e83;
+            color: white;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 7px;
+            background: transparent;
+            color: white;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .sidebar button:hover {
+            background: #6c3fa0;
+        }
+
+        .logout-button {
+            margin-top: 30px;
+            background: #c0392b !important;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .main-content h1 {
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           DASHBOARD CARDS
+        ========================================= */
+
+        .dashboard-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 220px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #4b2e83;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           BOOKS
+        ========================================= */
+
+        .book-list {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            padding: 22px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .book-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .book-card h3 {
+            color: #4b2e83;
+            margin-bottom: 10px;
+        }
+
+        .book-card p {
+            margin-bottom: 9px;
+            color: #555;
+        }
+
+        .book-card button {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 6px;
+            background: #4b2e83;
+            color: white;
+            margin-top: 8px;
+        }
+
+        .book-card button:hover {
+            background: #321d59;
+        }
+
+        .return-button {
+            background: #27ae60 !important;
+        }
+
+        .available {
+            color: #27ae60 !important;
+            font-weight: bold;
+        }
+
+        .borrowed {
+            color: #c0392b !important;
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           TABLES
+        ========================================= */
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            padding: 15px;
+            background: #4b2e83;
+            color: white;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .role-box {
+                width: 90%;
+            }
+
+            .role-buttons {
+                flex-direction: column;
+            }
+
+            .role-button {
+                width: 100%;
+            }
+
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         ROLE SELECTION
+    ========================================= -->
+
+    <div id="rolePage" class="role-page">
+
+        <div class="role-box">
+
+            <h1>📚 Library Management System</h1>
+
+            <p>
+                Please select how you want to access the system.
+            </p>
+
+            <div class="role-buttons">
+
+                <button
+                    class="role-button"
+                    onclick="selectRole('admin')"
+                >
+                    <span>👨‍💼</span>
+                    Admin
+                </button>
+
+                <button
+                    class="role-button"
+                    onclick="selectRole('student')"
+                >
+                    <span>🎓</span>
+                    Student
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         AUTHENTICATION PAGE
+    ========================================= -->
+
+    <div
+        id="authPage"
+        class="auth-page hidden"
+    >
+
+        <div class="auth-box">
+
+            <h1>📚 My Library</h1>
+
+            <p id="selectedRoleText">
+                Login
+            </p>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginForm">
+
+                <h2 id="loginTitle">
+                    Login
+                </h2>
+
+                <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="Username"
+                >
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                >
+
+                <button onclick="login()">
+                    Login
+                </button>
+
+
+                <p
+                    id="registerSwitch"
+                    class="switch-text"
+                >
+                    Don't have an account?
+
+                    <span onclick="showRegister()">
+                        Create Account
+                    </span>
+                </p>
+
+
+                <button
+                    class="back-button"
+                    onclick="backToRoleSelection()"
+                >
+                    ← Back
+                </button>
+
+            </div>
+
+
+            <!-- REGISTER -->
+
+            <div
+                id="registerForm"
+                class="hidden"
+            >
+
+                <h2>Create Student Account</h2>
+
+                <input
+                    type="text"
+                    id="registerUsername"
+                    placeholder="Create Username"
+                >
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create Password"
+                >
+
+                <button onclick="register()">
+                    Create Account
+                </button>
+
+                <p class="switch-text">
+                    Already have an account?
+
+                    <span onclick="showLogin()">
+                        Login
+                    </span>
+                </p>
+
+                <button
+                    class="back-button"
+                    onclick="backToRoleSelection()"
+                >
+                    ← Back
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         ADMIN DASHBOARD
+    ========================================= -->
+
+    <div
+        id="adminDashboard"
+        class="dashboard hidden"
+    >
+
+        <!-- ADMIN SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>👨‍💼 Admin Panel</h2>
+
+            <button onclick="showAdminSection('adminHome')">
+                🏠 Dashboard
+            </button>
+
+            <button onclick="showAdminSection('adminBooks')">
+                📚 All Books
+            </button>
+
+            <button onclick="showAdminSection('borrowRecords')">
+                📋 Borrowing Records
+            </button>
+
+            <button onclick="showAdminSection('registeredAccounts')">
+                👥 Student Accounts
+            </button>
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- ADMIN MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- ADMIN HOME -->
+
+            <section id="adminHome">
+
+                <h1>Welcome, Admin!</h1>
+
+                <div class="dashboard-cards">
+
+                    <div class="card">
+                        <h3>Total Books</h3>
+                        <p id="adminTotalBooks">20</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Available</h3>
+                        <p id="adminAvailableBooks">20</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Borrowed</h3>
+                        <p id="adminBorrowedBooks">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Students</h3>
+                        <p id="adminTotalStudents">0</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ADMIN BOOKS -->
+
+            <section
+                id="adminBooks"
+                class="hidden"
+            >
+
+                <h1>📚 All Books</h1>
+
+                <div
+                    id="adminBookList"
+                    class="book-list"
+                ></div>
+
+            </section>
+
+
+            <!-- BORROW RECORDS -->
+
+            <section
+                id="borrowRecords"
+                class="hidden"
+            >
+
+                <h1>📋 Borrowing Records</h1>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Student</th>
+                                <th>Book</th>
+                                <th>Date Borrowed</th>
+                                <th>Return Date</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="borrowTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- REGISTERED ACCOUNTS -->
+
+            <section
+                id="registeredAccounts"
+                class="hidden"
+            >
+
+                <h1>👥 Registered Student Accounts</h1>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="accountsTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         STUDENT DASHBOARD
+    ========================================= -->
+
+    <div
+        id="studentDashboard"
+        class="dashboard hidden"
+    >
+
+        <!-- STUDENT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>🎓 Student Panel</h2>
+
+            <button onclick="showStudentSection('studentHome')">
+                🏠 Dashboard
+            </button>
+
+            <button onclick="showStudentSection('availableBooks')">
+                📖 Available Books
+            </button>
+
+            <button onclick="showStudentSection('myBooks')">
+                📕 My Borrowed Books
+            </button>
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- STUDENT MAIN CONTENT -->
+
+        <main class="main-content">
+
+
+            <!-- STUDENT HOME -->
+
+            <section id="studentHome">
+
+                <h1>
+                    Welcome,
+                    <span id="studentName"></span>!
+                </h1>
+
+                <div class="dashboard-cards">
+
+                    <div class="card">
+                        <h3>Available Books</h3>
+                        <p id="studentAvailableBooks">20</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>My Borrowed Books</h3>
+                        <p id="studentBorrowedBooks">0</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AVAILABLE BOOKS -->
+
+            <section
+                id="availableBooks"
+                class="hidden"
+            >
+
+                <h1>📖 Available Books</h1>
+
+                <div
+                    id="studentBookList"
+                    class="book-list"
+                ></div>
+
+            </section>
+
+
+            <!-- MY BORROWED BOOKS -->
+
+            <section
+                id="myBooks"
+                class="hidden"
+            >
+
+                <h1>📕 My Borrowed Books</h1>
+
+                <div
+                    id="studentBorrowedList"
+                    class="book-list"
+                ></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+
+        /* =========================================
+           VARIABLES
+        ========================================= */
+
+        let selectedRole = "";
+
+        let currentUser = null;
+
+
+        /* =========================================
+           USERS
+        ========================================= */
+
+        let users = JSON.parse(
+            localStorage.getItem("libraryUsers")
+        ) || [];
+
+
+        /* Create default admin */
+
+        if (!users.some(user => user.username === "admin")) {
+
+            users.push({
+                username: "admin",
+                password: "admin123",
+                role: "admin"
+            });
+
+            localStorage.setItem(
+                "libraryUsers",
+                JSON.stringify(users)
+            );
+        }
+
+
+        /* =========================================
+           20 BOOKS
+        ========================================= */
+
+        const defaultBooks = [
+
+            {
+                id: 1,
+                title: "Harry Potter and the Sorcerer's Stone",
+                author: "J.K. Rowling"
+            },
+
+            {
+                id: 2,
+                title: "The Great Gatsby",
+                author: "F. Scott Fitzgerald"
+            },
+
+            {
+                id: 3,
+                title: "To Kill a Mockingbird",
+                author: "Harper Lee"
+            },
+
+            {
+                id: 4,
+                title: "1984",
+                author: "George Orwell"
+            },
+
+            {
+                id: 5,
+                title: "Pride and Prejudice",
+                author: "Jane Austen"
+            },
+
+            {
+                id: 6,
+                title: "The Hobbit",
+                author: "J.R.R. Tolkien"
+            },
+
+            {
+                id: 7,
+                title: "The Lord of the Rings",
+                author: "J.R.R. Tolkien"
+            },
+
+            {
+                id: 8,
+                title: "The Alchemist",
+                author: "Paulo Coelho"
+            },
+
+            {
+                id: 9,
+                title: "Percy Jackson: The Lightning Thief",
+                author: "Rick Riordan"
+            },
+
+            {
+                id: 10,
+                title: "The Hunger Games",
+                author: "Suzanne Collins"
+            },
+
+            {
+                id: 11,
+                title: "Divergent",
+                author: "Veronica Roth"
+            },
+
+            {
+                id: 12,
+                title: "The Fault in Our Stars",
+                author: "John Green"
+            },
+
+            {
+                id: 13,
+                title: "Little Women",
+                author: "Louisa May Alcott"
+            },
+
+            {
+                id: 14,
+                title: "Jane Eyre",
+                author: "Charlotte Brontë"
+            },
+
+            {
+                id: 15,
+                title: "Animal Farm",
+                author: "George Orwell"
+            },
+
+            {
+                id: 16,
+                title: "The Chronicles of Narnia",
+                author: "C.S. Lewis"
+            },
+
+            {
+                id: 17,
+                title: "Sherlock Holmes",
+                author: "Arthur Conan Doyle"
+            },
+
+            {
+                id: 18,
+                title: "Romeo and Juliet",
+                author: "William Shakespeare"
+            },
+
+            {
+                id: 19,
+                title: "The Little Prince",
+                author: "Antoine de Saint-Exupéry"
+            },
+
+            {
+                id: 20,
+                title: "Charlotte's Web",
+                author: "E.B. White"
+            }
+
+        ];
+
+
+        /* Load books */
+
+        let books = JSON.parse(
+            localStorage.getItem("libraryBooks")
+        );
+
+
+        /* If no books exist, create all 20 */
+
+        if (!books || books.length === 0) {
+
+            books = defaultBooks.map(book => {
+
+                return {
+                    ...book,
+                    available: true,
+                    borrowedBy: null,
+                    dateBorrowed: null,
+                    returnDate: null
+                };
+
+            });
+
+            saveBooks();
+        }
+
+
+        /* =========================================
+           ROLE SELECTION
+        ========================================= */
+
+        function selectRole(role) {
+
+            selectedRole = role;
+
+
+            document
+                .getElementById("rolePage")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("authPage")
+                .classList.remove("hidden");
+
+
+            showLogin();
+
+
+            if (role === "admin") {
+
+                document
+                    .getElementById("loginTitle")
+                    .textContent = "Admin Login";
+
+
+                document
+                    .getElementById("selectedRoleText")
+                    .textContent =
+                    "Login as Administrator";
+
+
+                document
+                    .getElementById("adminInfo")
+                    .classList.remove("hidden");
+
+
+                document
+                    .getElementById("registerSwitch")
+                    .classList.add("hidden");
+
+            } else {
+
+                document
+                    .getElementById("loginTitle")
+                    .textContent = "Student Login";
+
+
+                document
+                    .getElementById("selectedRoleText")
+                    .textContent =
+                    "Login as Student";
+
+
+                document
+                    .getElementById("adminInfo")
+                    .classList.add("hidden");
+
+
+                document
+                    .getElementById("registerSwitch")
+                    .classList.remove("hidden");
+            }
+        }
+
+
+        /* =========================================
+           BACK TO ROLE SELECTION
+        ========================================= */
+
+        function backToRoleSelection() {
+
+            document
+                .getElementById("authPage")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("rolePage")
+                .classList.remove("hidden");
+
+
+            document
+                .getElementById("loginUsername")
+                .value = "";
+
+
+            document
+                .getElementById("loginPassword")
+                .value = "";
+        }
+
+
+        /* =========================================
+           SHOW LOGIN
+        ========================================= */
+
+        function showLogin() {
+
+            document
+                .getElementById("registerForm")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("loginForm")
+                .classList.remove("hidden");
+        }
+
+
+        /* =========================================
+           SHOW REGISTER
+        ========================================= */
+
+        function showRegister() {
+
+            if (selectedRole !== "student") {
+                return;
+            }
+
+
+            document
+                .getElementById("loginForm")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("registerForm")
+                .classList.remove("hidden");
+        }
+
+
+        /* =========================================
+           REGISTER STUDENT
+        ========================================= */
+
+        function register() {
+
+            const username =
+                document
+                    .getElementById("registerUsername")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("registerPassword")
+                    .value;
+
+
+            if (!username || !password) {
+
+                alert(
+                    "Please fill in all fields."
+                );
+
+                return;
+            }
+
+
+            users = JSON.parse(
+                localStorage.getItem("libraryUsers")
+            ) || [];
+
+
+            const exists = users.some(
+                user =>
+                    user.username.toLowerCase() ===
+                    username.toLowerCase()
+            );
+
+
+            if (exists) {
+
+                alert(
+                    "That username is already taken."
+                );
+
+                return;
+            }
+
+
+            users.push({
+
+                username: username,
+                password: password,
+                role: "student"
+
+            });
+
+
+            localStorage.setItem(
+                "libraryUsers",
+                JSON.stringify(users)
+            );
+
+
+            alert(
+                "Student account created successfully!"
+            );
+
+
+            document
+                .getElementById("registerUsername")
+                .value = "";
+
+
+            document
+                .getElementById("registerPassword")
+                .value = "";
+
+
+            showLogin();
+        }
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        function login() {
+
+            const username =
+                document
+                    .getElementById("loginUsername")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("loginPassword")
+                    .value;
+
+
+            users = JSON.parse(
+                localStorage.getItem("libraryUsers")
+            ) || [];
+
+
+            const user = users.find(
+                account =>
+                    account.username === username &&
+                    account.password === password &&
+                    account.role === selectedRole
+            );
+
+
+            if (!user) {
+
+                alert(
+                    "Invalid login information."
+                );
+
+                return;
+            }
+
+
+            currentUser = user;
+
+
+            if (user.role === "admin") {
+
+                openAdminDashboard();
+
+            } else {
+
+                openStudentDashboard();
+
+            }
+        }
+
+
+        /* =========================================
+           ADMIN DASHBOARD
+        ========================================= */
+
+        function openAdminDashboard() {
+
+            document
+                .getElementById("authPage")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("adminDashboard")
+                .classList.remove("hidden");
+
+
+            updateAdminDashboard();
+
+            displayAdminBooks();
+
+            displayBorrowRecords();
+
+            displayRegisteredAccounts();
+        }
+
+
+        /* =========================================
+           ADMIN STATISTICS
+        ========================================= */
+
+        function updateAdminDashboard() {
+
+            const available =
+                books.filter(
+                    book => book.available
+                ).length;
+
+
+            const borrowed =
+                books.filter(
+                    book => !book.available
+                ).length;
+
+
+            const students =
+                users.filter(
+                    user => user.role === "student"
+                ).length;
+
+
+            document
+                .getElementById("adminTotalBooks")
+                .textContent =
+                books.length;
+
+
+            document
+                .getElementById("adminAvailableBooks")
+                .textContent =
+                available;
+
+
+            document
+                .getElementById("adminBorrowedBooks")
+                .textContent =
+                borrowed;
+
+
+            document
+                .getElementById("adminTotalStudents")
+                .textContent =
+                students;
+        }
+
+
+        /* =========================================
+           ADMIN - DISPLAY BOOKS
+        ========================================= */
+
+        function displayAdminBooks() {
+
+            const list =
+                document.getElementById(
+                    "adminBookList"
+                );
+
+
+            list.innerHTML = "";
+
+
+            books.forEach(book => {
+
+                const status =
+                    book.available
+                        ? "🟢 Available"
+                        : "🔴 Borrowed";
+
+
+                list.innerHTML += `
+
+                    <div class="book-card">
+
+                        <div class="book-icon">
+                            📖
+                        </div>
+
+                        <h3>
+                            ${book.title}
+                        </h3>
+
+                        <p>
+                            <strong>Author:</strong>
+                            ${book.author}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            ${status}
+                        </p>
+
+                        ${
+                            !book.available
+                            ? `
+                                <p>
+                                    <strong>Borrowed By:</strong>
+                                    ${book.borrowedBy}
+                                </p>
+
+                                <p>
+                                    <strong>Due:</strong>
+                                    ${book.returnDate}
+                                </p>
+                            `
+                            : ""
+                        }
+
+                    </div>
+
+                `;
+            });
+        }
+
+
+        /* =========================================
+           ADMIN - BORROW RECORDS
+        ========================================= */
+
+        function displayBorrowRecords() {
+
+            const table =
+                document.getElementById(
+                    "borrowTable"
+                );
+
+
+            table.innerHTML = "";
+
+
+            const borrowedBooks =
+                books.filter(
+                    book =>
+                        book.borrowedBy !== null
+                );
+
+
+            if (borrowedBooks.length === 0) {
+
+                table.innerHTML = `
+
+                    <tr>
+                        <td colspan="5">
+                            No books are currently borrowed.
+                        </td>
+                    </tr>
+
+                `;
+
+                return;
+            }
+
+
+            borrowedBooks.forEach(book => {
+
+                table.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${book.borrowedBy}
+                        </td>
+
+                        <td>
+                            ${book.title}
+                        </td>
+
+                        <td>
+                            ${book.dateBorrowed}
+                        </td>
+
+                        <td>
+                            ${book.returnDate}
+                        </td>
+
+                        <td class="borrowed">
+                            🔴 Borrowed
+                        </td>
+
+                    </tr>
+
+                `;
+            });
+        }
+
+
+        /* =========================================
+           ADMIN - REGISTERED ACCOUNTS
+        ========================================= */
+
+        function displayRegisteredAccounts() {
+
+            const table =
+                document.getElementById(
+                    "accountsTable"
+                );
+
+
+            table.innerHTML = "";
+
+
+            users = JSON.parse(
+                localStorage.getItem("libraryUsers")
+            ) || [];
+
+
+            const students =
+                users.filter(
+                    user =>
+                        user.role === "student"
+                );
+
+
+            if (students.length === 0) {
+
+                table.innerHTML = `
+
+                    <tr>
+
+                        <td colspan="3">
+                            No student accounts registered.
+                        </td>
+
+                    </tr>
+
+                `;
+
+                return;
+            }
+
+
+            students.forEach(
+                (student, index) => {
+
+                    table.innerHTML += `
+
+                        <tr>
+
+                            <td>
+                                ${index + 1}
+                            </td>
+
+                            <td>
+                                ${student.username}
+                            </td>
+
+                            <td>
+                                🎓 Student
+                            </td>
+
+                        </tr>
+
+                    `;
+                }
+            );
+        }
+
+
+        /* =========================================
+           ADMIN NAVIGATION
+        ========================================= */
+
+        function showAdminSection(section) {
+
+            const sections = [
+
+                "adminHome",
+                "adminBooks",
+                "borrowRecords",
+                "registeredAccounts"
+
+            ];
+
+
+            sections.forEach(id => {
+
+                document
+                    .getElementById(id)
+                    .classList.add("hidden");
+
+            });
+
+
+            document
+                .getElementById(section)
+                .classList.remove("hidden");
+        }
+
+
+        /* =========================================
+           STUDENT DASHBOARD
+        ========================================= */
+
+        function openStudentDashboard() {
+
+            document
+                .getElementById("authPage")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("studentDashboard")
+                .classList.remove("hidden");
+
+
+            document
+                .getElementById("studentName")
+                .textContent =
+                currentUser.username;
+
+
+            updateStudentDashboard();
+
+            displayStudentBooks();
+
+            displayStudentBorrowedBooks();
+        }
+
+
+        /* =========================================
+           STUDENT STATISTICS
+        ========================================= */
+
+        function updateStudentDashboard() {
+
+            const available =
+                books.filter(
+                    book => book.available
+                ).length;
+
+
+            const borrowed =
+                books.filter(
+                    book =>
+                        book.borrowedBy ===
+                        currentUser.username
+                ).length;
+
+
+            document
+                .getElementById("studentAvailableBooks")
+                .textContent =
+                available;
+
+
+            document
+                .getElementById("studentBorrowedBooks")
+                .textContent =
+                borrowed;
+        }
+
+
+        /* =========================================
+           STUDENT - AVAILABLE BOOKS
+        ========================================= */
+
+        function displayStudentBooks() {
+
+            const list =
+                document.getElementById(
+                    "studentBookList"
+                );
+
+
+            list.innerHTML = "";
+
+
+            const availableBooks =
+                books.filter(
+                    book => book.available
+                );
+
+
+            if (availableBooks.length === 0) {
+
+                list.innerHTML =
+                    "<p>No books are currently available.</p>";
+
+                return;
+            }
+
+
+            availableBooks.forEach(book => {
+
+                list.innerHTML += `
+
+                    <div class="book-card">
+
+                        <div class="book-icon">
+                            📖
+                        </div>
+
+                        <h3>
+                            ${book.title}
+                        </h3>
+
+                        <p>
+                            <strong>Author:</strong>
+                            ${book.author}
+                        </p>
+
+                        <p class="available">
+                            🟢 Available
+                        </p>
+
+                        <button
+                            onclick="borrowBook(${book.id})"
+                        >
+                            Borrow Book
+                        </button>
+
+                    </div>
+
+                `;
+            });
+        }
+
+
+        /* =========================================
+           BORROW BOOK
+        ========================================= */
+
+        function borrowBook(id) {
+
+            const book =
+                books.find(
+                    book => book.id === id
+                );
+
+
+            if (!book || !book.available) {
+
+                alert(
+                    "This book is no longer available."
+                );
+
+                return;
+            }
+
+
+            const today = new Date();
+
+            const dueDate = new Date();
+
+
+            // Seven-day borrowing period
+
+            dueDate.setDate(
+                today.getDate() + 7
+            );
+
+
+            book.available = false;
+
+            book.borrowedBy =
+                currentUser.username;
+
+            book.dateBorrowed =
+                formatDate(today);
+
+            book.returnDate =
+                formatDate(dueDate);
+
+
+            saveBooks();
+
+
+            alert(
+                "Book borrowed successfully!\n\n" +
+                "Book: " +
+                book.title +
+                "\n" +
+                "Return Date: " +
+                book.returnDate
+            );
+
+
+            refreshStudent();
+        }
+
+
+        /* =========================================
+           FORMAT DATE
+        ========================================= */
+
+        function formatDate(date) {
+
+            return date.toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+        }
+
+
+        /* =========================================
+           STUDENT - MY BOOKS
+        ========================================= */
+
+        function displayStudentBorrowedBooks() {
+
+            const list =
+                document.getElementById(
+                    "studentBorrowedList"
+                );
+
+
+            list.innerHTML = "";
+
+
+            const myBooks =
+                books.filter(
+                    book =>
+                        book.borrowedBy ===
+                        currentUser.username
+                );
+
+
+            if (myBooks.length === 0) {
+
+                list.innerHTML = `
+
+                    <p>
+                        You currently have no borrowed books.
+                    </p>
+
+                `;
+
+                return;
+            }
+
+
+            myBooks.forEach(book => {
+
+                list.innerHTML += `
+
+                    <div class="book-card">
+
+                        <div class="book-icon">
+                            📕
+                        </div>
+
+                        <h3>
+                            ${book.title}
+                        </h3>
+
+                        <p>
+                            <strong>Author:</strong>
+                            ${book.author}
+                        </p>
+
+                        <p>
+                            <strong>Date Borrowed:</strong>
+                            ${book.dateBorrowed}
+                        </p>
+
+                        <p>
+                            <strong>Return Date:</strong>
+                            ${book.returnDate}
+                        </p>
+
+                        <p class="borrowed">
+                            🔴 Currently Borrowed
+                        </p>
+
+                        <button
+                            class="return-button"
+                            onclick="returnBook(${book.id})"
+                        >
+                            Return Book
+                        </button>
+
+                    </div>
+
+                `;
+            });
+        }
+
+
+        /* =========================================
+           RETURN BOOK
+        ========================================= */
+
+        function returnBook(id) {
+
+            const book =
+                books.find(
+                    book => book.id === id
+                );
+
+
+            if (!book) {
+                return;
+            }
+
+
+            const confirmReturn =
+                confirm(
+                    "Are you sure you want to return this book?"
+                );
+
+
+            if (!confirmReturn) {
+                return;
+            }
+
+
+            book.available = true;
+
+            book.borrowedBy = null;
+
+            book.dateBorrowed = null;
+
+            book.returnDate = null;
+
+
+            saveBooks();
+
+
+            alert(
+                "Book returned successfully!"
+            );
+
+
+            refreshStudent();
+        }
+
+
+        /* =========================================
+           STUDENT NAVIGATION
+        ========================================= */
+
+        function showStudentSection(section) {
+
+            const sections = [
+
+                "studentHome",
+                "availableBooks",
+                "myBooks"
+
+            ];
+
+
+            sections.forEach(id => {
+
+                document
+                    .getElementById(id)
+                    .classList.add("hidden");
+
+            });
+
+
+            document
+                .getElementById(section)
+                .classList.remove("hidden");
+        }
+
+
+        /* =========================================
+           SAVE BOOKS
+        ========================================= */
+
+        function saveBooks() {
+
+            localStorage.setItem(
+                "libraryBooks",
+                JSON.stringify(books)
+            );
+        }
+
+
+        /* =========================================
+           REFRESH STUDENT INFORMATION
+        ========================================= */
+
+        function refreshStudent() {
+
+            updateStudentDashboard();
+
+            displayStudentBooks();
+
+            displayStudentBorrowedBooks();
+        }
+
+
+        /* =========================================
+           LOGOUT
+        ========================================= */
+
+        function logout() {
+
+            currentUser = null;
+
+
+            document
+                .getElementById("adminDashboard")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("studentDashboard")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("authPage")
+                .classList.add("hidden");
+
+
+            document
+                .getElementById("rolePage")
+                .classList.remove("hidden");
+
+
+            document
+                .getElementById("loginUsername")
+                .value = "";
+
+
+            document
+                .getElementById("loginPassword")
+                .value = "";
+        }
+
+    </script>
+
+</body>
+
+</html>
+
