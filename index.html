@@ -42,7 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #4b2e83, #8e44ad);
+            background: linear-gradient(135deg, #f0faa7, #ccd78a);
         }
 
         .role-box {
@@ -55,7 +55,7 @@
         }
 
         .role-box h1 {
-            color: #4b2e83;
+            color: #faabe9;
             margin-bottom: 10px;
         }
 
@@ -75,14 +75,14 @@
             padding: 25px 15px;
             border: none;
             border-radius: 12px;
-            background: #4b2e83;
+            background: #fbaeed;
             color: white;
             font-size: 18px;
             transition: 0.2s;
         }
 
         .role-button:hover {
-            background: #321d59;
+            background: #fab5e9;
             transform: translateY(-3px);
         }
 
@@ -102,7 +102,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #4b2e83, #8e44ad);
+            background: linear-gradient(135deg, #fa9fe3, #f981d7);
         }
 
         .auth-box {
@@ -115,7 +115,7 @@
         }
 
         .auth-box h1 {
-            color: #4b2e83;
+            color: #f1fac2;
             margin-bottom: 8px;
         }
 
@@ -137,13 +137,13 @@
             padding: 13px;
             border: none;
             border-radius: 7px;
-            background: #4b2e83;
+            background: #fec6f7;
             color: white;
             font-size: 16px;
         }
 
         .auth-box button:hover {
-            background: #321d59;
+            background: #f6a4e3;
         }
 
         .switch-text {
@@ -152,7 +152,7 @@
         }
 
         .switch-text span {
-            color: #4b2e83;
+            color: #f6afe5;
             font-weight: bold;
             cursor: pointer;
         }
@@ -184,7 +184,7 @@
             width: 250px;
             min-height: 100vh;
             padding: 30px 20px;
-            background: #4b2e83;
+            background: #eef7af;
             color: white;
         }
 
@@ -206,12 +206,12 @@
         }
 
         .sidebar button:hover {
-            background: #6c3fa0;
+            background: #f7a7e5;
         }
 
         .logout-button {
             margin-top: 30px;
-            background: #c0392b !important;
+            background: #f7ace5 !important;
         }
 
         .main-content {
@@ -248,7 +248,7 @@
         }
 
         .card p {
-            color: #4b2e83;
+            color: #e7ebae;
             font-size: 35px;
             font-weight: bold;
         }
@@ -278,7 +278,7 @@
         }
 
         .book-card h3 {
-            color: #4b2e83;
+            color: #fab3f8;
             margin-bottom: 10px;
         }
 
@@ -292,26 +292,26 @@
             padding: 11px;
             border: none;
             border-radius: 6px;
-            background: #4b2e83;
+            background: #f0ffc2;
             color: white;
             margin-top: 8px;
         }
 
         .book-card button:hover {
-            background: #321d59;
+            background: #f6a3d6;
         }
 
         .return-button {
-            background: #27ae60 !important;
+            background: #fa9ee9 !important;
         }
 
         .available {
-            color: #27ae60 !important;
+            color: #f6a6e7 !important;
             font-weight: bold;
         }
 
         .borrowed {
-            color: #c0392b !important;
+            color: #f2fab4 !important;
             font-weight: bold;
         }
 
@@ -334,7 +334,7 @@
 
         th {
             padding: 15px;
-            background: #4b2e83;
+            background: #efff9d;
             color: white;
             text-align: left;
         }
@@ -396,7 +396,7 @@
 
         <div class="role-box">
 
-            <h1>📚 Library Management System</h1>
+            <h1>AICS Book Catalog Database</h1>
 
             <p>
                 Please select how you want to access the system.
@@ -408,7 +408,7 @@
                     class="role-button"
                     onclick="selectRole('admin')"
                 >
-                    <span>👨‍💼</span>
+                    <span></span>
                     Admin
                 </button>
 
@@ -416,7 +416,7 @@
                     class="role-button"
                     onclick="selectRole('student')"
                 >
-                    <span>🎓</span>
+                    <span></span>
                     Student
                 </button>
 
@@ -438,7 +438,7 @@
 
         <div class="auth-box">
 
-            <h1>📚 My Library</h1>
+            <h1> My Library</h1>
 
             <p id="selectedRoleText">
                 Login
@@ -552,29 +552,29 @@
 
         <aside class="sidebar">
 
-            <h2>👨‍💼 Admin Panel</h2>
+            <h2> Admin Panel</h2>
 
             <button onclick="showAdminSection('adminHome')">
-                🏠 Dashboard
+                 Dashboard
             </button>
 
             <button onclick="showAdminSection('adminBooks')">
-                📚 All Books
+                 All Books
             </button>
 
             <button onclick="showAdminSection('borrowRecords')">
-                📋 Borrowing Records
+                 Borrowing Records
             </button>
 
             <button onclick="showAdminSection('registeredAccounts')">
-                👥 Student Accounts
+                 Student Accounts
             </button>
 
             <button
                 class="logout-button"
                 onclick="logout()"
             >
-                🚪 Logout
+                 Logout
             </button>
 
         </aside>
@@ -625,7 +625,7 @@
                 class="hidden"
             >
 
-                <h1>📚 All Books</h1>
+                <h1> All Books</h1>
 
                 <div
                     id="adminBookList"
@@ -642,7 +642,7 @@
                 class="hidden"
             >
 
-                <h1>📋 Borrowing Records</h1>
+                <h1> Borrowing Records</h1>
 
                 <div class="table-container">
 
@@ -676,7 +676,7 @@
                 class="hidden"
             >
 
-                <h1>👥 Registered Student Accounts</h1>
+                <h1> Registered Student Accounts</h1>
 
                 <div class="table-container">
 
@@ -718,25 +718,25 @@
 
         <aside class="sidebar">
 
-            <h2>🎓 Student Panel</h2>
+            <h2> Student Panel</h2>
 
             <button onclick="showStudentSection('studentHome')">
-                🏠 Dashboard
+                 Dashboard
             </button>
 
             <button onclick="showStudentSection('availableBooks')">
-                📖 Available Books
+                 Available Books
             </button>
 
             <button onclick="showStudentSection('myBooks')">
-                📕 My Borrowed Books
+                 My Borrowed Books
             </button>
 
             <button
                 class="logout-button"
                 onclick="logout()"
             >
-                🚪 Logout
+                 Logout
             </button>
 
         </aside>
@@ -780,7 +780,7 @@
                 class="hidden"
             >
 
-                <h1>📖 Available Books</h1>
+                <h1> Available Books</h1>
 
                 <div
                     id="studentBookList"
@@ -797,7 +797,7 @@
                 class="hidden"
             >
 
-                <h1>📕 My Borrowed Books</h1>
+                <h1> My Borrowed Books</h1>
 
                 <div
                     id="studentBorrowedList"
@@ -1389,7 +1389,7 @@
                     <div class="book-card">
 
                         <div class="book-icon">
-                            📖
+                            
                         </div>
 
                         <h3>
@@ -1561,7 +1561,7 @@
                             </td>
 
                             <td>
-                                🎓 Student
+                                 Student
                             </td>
 
                         </tr>
@@ -1703,7 +1703,7 @@
                     <div class="book-card">
 
                         <div class="book-icon">
-                            📖
+                            
                         </div>
 
                         <h3>
@@ -1856,7 +1856,6 @@
                     <div class="book-card">
 
                         <div class="book-icon">
-                            📕
                         </div>
 
                         <h3>
@@ -2046,3 +2045,4 @@
 </body>
 
 </html>
+
