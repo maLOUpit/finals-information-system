@@ -541,35 +541,26 @@
 
         <div class="role-box">
 
-            <h1> AICS Book Catalog Database</h1>
+            <h1>AICS Book Catalog Database</h1>
 
             <p>
                 Please select how you want to access the system.
             </p>
 
             <div class="role-buttons">
-
-            </div>
-
-
                 <button
                     class="role-button"
                     onclick="selectRole('admin')">
-
-                    <span></span>
+                    <span>👑</span>
                     Admin
-
                 </button>
 
                 <button
                     class="role-button"
                     onclick="selectRole('student')">
-
-                    <span></span>
+                    <span>🎓</span>
                     Student
-
                 </button>
-
             </div>
 
         </div>
@@ -585,7 +576,7 @@
 
         <div class="auth-box">
 
-            <h1> My Library</h1>
+            <h1>My Library</h1>
 
             <p id="selectedRoleText">
                 Login
@@ -601,6 +592,9 @@
                 </h2>
 
                 <div id="adminInfo" class="admin-info hidden">
+                    Default Admin Login:<br>
+                    Username: <b>admin</b> | Password: <b>admin123</b>
+                </div>
 
                 <input
                     type="text"
@@ -700,30 +694,28 @@
 
         <aside class="sidebar">
 
-            <h2> Admin Panel</h2>
+            <h2>Admin Panel</h2>
 
             <button onclick="showAdminSection('adminHome')">
-                 Dashboard
+                📊 Dashboard
             </button>
 
             <button onclick="showAdminSection('adminBooks')">
-                 All Books
+                📚 All Books
             </button>
 
             <button onclick="showAdminSection('borrowRecords')">
-                 Borrowing Records
+                📋 Borrowing Records
             </button>
 
             <button onclick="showAdminSection('registeredAccounts')">
-                 Student Accounts
+                👥 Student Accounts
             </button>
 
             <button
                 class="logout-button"
                 onclick="logout()">
-
-                 Logout
-
+                🚪 Logout
             </button>
 
         </aside>
@@ -769,7 +761,7 @@
 
             <section id="adminBooks" class="hidden">
 
-                <h1> All Books</h1>
+                <h1>📚 All Books</h1>
 
                 <div
                     id="adminBookList"
@@ -816,7 +808,7 @@
 
             <section id="registeredAccounts" class="hidden">
 
-                <h1> Registered Student Accounts</h1>
+                <h1>👥 Registered Student Accounts</h1>
 
                 <div class="table-container">
 
@@ -855,30 +847,28 @@
 
         <aside class="sidebar">
 
-            <h2> Student Panel</h2>
+            <h2>Student Panel</h2>
 
             <button onclick="showStudentSection('studentHome')">
-                 Dashboard
+                📊 Dashboard
             </button>
 
             <button onclick="showStudentSection('availableBooks')">
-                 Available Books
+                📖 Available Books
             </button>
 
             <button onclick="showStudentSection('suggestions')">
-                 Book Suggestions
+                💡 Book Suggestions
             </button>
 
             <button onclick="showStudentSection('myBooks')">
-                 My Borrowed Books
+                📕 My Borrowed Books
             </button>
 
             <button
                 class="logout-button"
                 onclick="logout()">
-
-                 Logout
-
+                🚪 Logout
             </button>
 
         </aside>
@@ -914,7 +904,7 @@
 
                 <div class="card" style="width:100%;">
 
-                    <h3> Suggested for You</h3>
+                    <h3>💡 Suggested for You</h3>
 
                     <p style="font-size:16px; color:#6f5d5d;">
                         Explore our book suggestions by genre.
@@ -931,7 +921,7 @@
 
             <section id="availableBooks" class="hidden">
 
-                <h1> Available Books</h1>
+                <h1>📖 Available Books</h1>
 
                 <div
                     id="studentBookList"
@@ -945,7 +935,7 @@
 
             <section id="suggestions" class="hidden">
 
-                <h1> Book Suggestions</h1>
+                <h1>💡 Book Suggestions</h1>
 
                 <p style="margin-bottom:20px;">
                     Choose a genre to explore suggested books.
@@ -986,7 +976,7 @@
 
             <section id="myBooks" class="hidden">
 
-                <h1> My Borrowed Books</h1>
+                <h1>📕 My Borrowed Books</h1>
 
                 <div
                     id="studentBorrowedList"
@@ -1005,7 +995,6 @@
     ============================== -->
 
     <script>
-
 
         /* ==============================
            VARIABLES
@@ -1598,7 +1587,7 @@
                     <div class="book-card">
 
                         <div class="book-icon">
-                            
+                            📖
                         </div>
 
                         <h3>
@@ -1811,7 +1800,7 @@
                             </td>
 
                             <td>
-                                 Student
+                                Student
                             </td>
 
                         </tr>
@@ -2017,14 +2006,14 @@
 
             const icons = {
 
-                "Fantasy": "",
-                "Classic": "",
-                "Science Fiction": "",
-                "Romance": "",
-                "Adventure": "",
-                "Satire": "",
-                "Mystery": "",
-                "Children's Literature": ""
+                "Fantasy": "🧙‍♂️",
+                "Classic": "📜",
+                "Science Fiction": "🚀",
+                "Romance": "💖",
+                "Adventure": "🗺️",
+                "Satire": "🃏",
+                "Mystery": "🔍",
+                "Children's Literature": "🧸"
 
             };
 
