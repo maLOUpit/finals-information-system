@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
+
+    <title>AICS Book Catalog Database</title>
 
     <style>
 
@@ -20,7 +21,7 @@
         }
 
         body {
-            background: #fff9e6;
+            background: #fff9d9;
             color: #333;
         }
 
@@ -39,28 +40,36 @@
 
         .role-page {
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(
-                135deg,
-                #fff3a6,
-                #ffd6df,
-                #fff0a8
-            );
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1a8,
+                    #ffd6df,
+                    #fff4b8
+                );
         }
 
         .role-box {
             width: 500px;
             padding: 45px;
+
             background: white;
+
             border-radius: 20px;
+
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .role-box h1 {
-            color: #d66b82;
+            color: #d66b85;
             margin-bottom: 10px;
         }
 
@@ -78,76 +87,100 @@
         .role-button {
             width: 180px;
             padding: 25px 15px;
+
             border: none;
             border-radius: 12px;
-            background: #f4a6b7;
-            color: white;
+
+            background: #f5c84c;
+            color: #5a4632;
+
             font-size: 18px;
+
             transition: 0.2s;
         }
 
         .role-button:hover {
-            background: #df8298;
+            background: #edb932;
             transform: translateY(-3px);
         }
 
 
         /* =========================================
-           LOGIN / REGISTER
+           AUTHENTICATION
         ========================================= */
 
         .auth-page {
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(
-                135deg,
-                #fff3a6,
-                #ffd6df,
-                #fff0a8
-            );
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe6a7,
+                    #ffd1dc,
+                    #fff0a8
+                );
         }
 
         .auth-box {
-            width: 420px;
+            width: 430px;
             padding: 40px;
+
             background: white;
+
             border-radius: 15px;
+
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .auth-box h1 {
-            color: #d66b82;
+            color: #d66b85;
             margin-bottom: 8px;
         }
 
         .auth-box h2 {
             margin: 25px 0 20px;
+            color: #555;
         }
 
-        .auth-box input {
+        .auth-box input,
+        .auth-box select {
             width: 100%;
+
             padding: 13px;
+
             margin-bottom: 15px;
+
             border: 1px solid #ddd;
             border-radius: 7px;
+
             font-size: 15px;
+
+            background: white;
         }
 
         .auth-box button {
             width: 100%;
+
             padding: 13px;
+
             border: none;
             border-radius: 7px;
-            background: #f4a6b7;
+
+            background: #e88ca0;
             color: white;
+
             font-size: 16px;
         }
 
         .auth-box button:hover {
-            background: #df8298;
+            background: #d66b85;
         }
 
         .switch-text {
@@ -156,18 +189,14 @@
         }
 
         .switch-text span {
-            color: #d66b82;
+            color: #d66b85;
             font-weight: bold;
             cursor: pointer;
         }
 
         .back-button {
             margin-top: 15px !important;
-            background: #d6c77a !important;
-        }
-
-        .back-button:hover {
-            background: #c5b768 !important;
+            background: #999 !important;
         }
 
 
@@ -183,9 +212,17 @@
         .sidebar {
             width: 250px;
             min-height: 100vh;
+
             padding: 30px 20px;
-            background: #f4a6b7;
-            color: white;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #f5c84c,
+                    #f3a6b8
+                );
+
+            color: #4d3b30;
         }
 
         .sidebar h2 {
@@ -195,29 +232,39 @@
 
         .sidebar button {
             width: 100%;
+
             padding: 14px;
+
             margin-bottom: 10px;
+
             border: none;
             border-radius: 7px;
+
             background: transparent;
-            color: white;
+
+            color: #4d3b30;
+
             text-align: left;
+
             font-size: 15px;
         }
 
         .sidebar button:hover {
-            background: #df8298;
+            background: rgba(255, 255, 255, 0.45);
         }
 
         .logout-button {
             margin-top: 30px;
-            background: #d66b82 !important;
+
+            background: #d66b85 !important;
+            color: white !important;
         }
 
         .main-content {
             flex: 1;
             padding: 40px;
-            background: #fff9e6;
+
+            background: #fffbe8;
         }
 
         .main-content h1 {
@@ -238,11 +285,17 @@
 
         .card {
             width: 220px;
+
             padding: 25px;
+
             background: white;
+
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid #f4a6b7;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+
+            border-top: 5px solid #f5c84c;
         }
 
         .card h3 {
@@ -251,8 +304,10 @@
         }
 
         .card p {
-            color: #d66b82;
+            color: #d66b85;
+
             font-size: 35px;
+
             font-weight: bold;
         }
 
@@ -263,21 +318,36 @@
 
         .book-list {
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fit, minmax(240px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(240px, 1fr)
+                );
+
             gap: 20px;
         }
 
         .book-card {
             padding: 22px;
+
             background: white;
+
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border-top: 5px solid #f4d35e;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+
+            border-left: 5px solid #f5c84c;
+        }
+
+        .book-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
         }
 
         .book-card h3 {
-            color: #d66b82;
+            color: #d66b85;
             margin-bottom: 10px;
         }
 
@@ -288,33 +358,33 @@
 
         .book-card button {
             width: 100%;
+
             padding: 11px;
+
             border: none;
             border-radius: 6px;
-            background: #f4a6b7;
+
+            background: #e88ca0;
             color: white;
+
             margin-top: 8px;
         }
 
         .book-card button:hover {
-            background: #df8298;
+            background: #d66b85;
         }
 
         .return-button {
-            background: #d6b84f !important;
-        }
-
-        .return-button:hover {
-            background: #bfa333 !important;
+            background: #d5a928 !important;
         }
 
         .available {
-            color: #6da66d !important;
+            color: #5d9b63 !important;
             font-weight: bold;
         }
 
         .borrowed {
-            color: #d66b82 !important;
+            color: #d66b85 !important;
             font-weight: bold;
         }
 
@@ -323,41 +393,51 @@
            GENRE SUGGESTIONS
         ========================================= */
 
-        .suggestion-section {
-            margin-top: 40px;
+        .suggestion-intro {
+            margin-bottom: 25px;
+            color: #666;
         }
 
-        .suggestion-section h2 {
-            margin-bottom: 20px;
-            color: #d66b82;
-        }
-
-        .genre-list {
+        .genre-grid {
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
+                repeat(
+                    auto-fit,
+                    minmax(200px, 1fr)
+                );
+
+            gap: 20px;
         }
 
         .genre-folder {
-            padding: 25px 20px;
-            background: #fff;
-            border: 2px solid #f4d35e;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            border: none;
+
+            text-align: left;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.08);
+
+            border-top: 6px solid #f5c84c;
+
             transition: 0.2s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
         }
 
         .genre-folder:hover {
             transform: translateY(-4px);
-            background: #fffbea;
-            border-color: #f4a6b7;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .genre-folder h3 {
-            color: #d66b82;
+            color: #d66b85;
             margin-bottom: 8px;
         }
 
@@ -370,23 +450,23 @@
             margin-top: 25px;
         }
 
-        .genre-books h2 {
-            color: #d66b82;
+        .genre-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
             margin-bottom: 20px;
         }
 
-        .close-genre-button {
-            width: 180px;
-            padding: 11px;
+        .genre-header button {
+            padding: 10px 18px;
+
             border: none;
-            border-radius: 7px;
-            background: #d6c77a;
-            color: white;
-            margin-bottom: 20px;
-        }
+            border-radius: 6px;
 
-        .close-genre-button:hover {
-            background: #c5b768;
+            background: #999;
+            color: white;
         }
 
 
@@ -400,48 +480,56 @@
 
         table {
             width: 100%;
+
             border-collapse: collapse;
+
             background: white;
+
             border-radius: 10px;
+
             overflow: hidden;
         }
 
         th {
             padding: 15px;
-            background: #f4a6b7;
+
+            background: #e88ca0;
+
             color: white;
+
             text-align: left;
         }
 
         td {
             padding: 14px;
-            border-bottom: 1px solid #eee;
+
+            border-bottom:
+                1px solid #eee;
         }
 
         tr:nth-child(even) {
-            background: #fffbea;
+            background: #fff8df;
         }
 
 
         /* =========================================
-           ADMIN BOOKS
+           STUDENT DETAILS
         ========================================= */
 
-        .admin-book-status {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            display: inline-block;
+        .student-details {
+            background: #fff4c2;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+
+            border-left: 5px solid #f5c84c;
         }
 
-        .status-available {
-            background: #e2f3df;
-            color: #578a55;
-        }
-
-        .status-borrowed {
-            background: #ffe0e6;
-            color: #c85e74;
+        .student-details p {
+            margin-bottom: 5px;
         }
 
 
@@ -479,6 +567,7 @@
             .auth-box {
                 width: 90%;
             }
+
         }
 
     </style>
@@ -496,7 +585,7 @@
 
         <div class="role-box">
 
-            <h1>Library Management System</h1>
+            <h1>AICS Book Catalog Database</h1>
 
             <p>
                 Please select how you want to access the system.
@@ -536,7 +625,7 @@
 
         <div class="auth-box">
 
-            <h1>My Library</h1>
+            <h1>AICS Book Catalog Database</h1>
 
             <p id="selectedRoleText">
                 Login
@@ -698,23 +787,43 @@
                 <div class="dashboard-cards">
 
                     <div class="card">
+
                         <h3>Total Books</h3>
-                        <p id="adminTotalBooks">20</p>
+
+                        <p id="adminTotalBooks">
+                            20
+                        </p>
+
                     </div>
 
                     <div class="card">
+
                         <h3>Available</h3>
-                        <p id="adminAvailableBooks">20</p>
+
+                        <p id="adminAvailableBooks">
+                            20
+                        </p>
+
                     </div>
 
                     <div class="card">
+
                         <h3>Borrowed</h3>
-                        <p id="adminBorrowedBooks">0</p>
+
+                        <p id="adminBorrowedBooks">
+                            0
+                        </p>
+
                     </div>
 
                     <div class="card">
+
                         <h3>Students</h3>
-                        <p id="adminTotalStudents">0</p>
+
+                        <p id="adminTotalStudents">
+                            0
+                        </p>
+
                     </div>
 
                 </div>
@@ -755,13 +864,21 @@
                         <thead>
 
                             <tr>
-                                <th>Student</th>
+
                                 <th>Student Number</th>
+
+                                <th>Student</th>
+
                                 <th>Section</th>
+
                                 <th>Book</th>
+
                                 <th>Date Borrowed</th>
+
                                 <th>Return Date</th>
+
                                 <th>Status</th>
+
                             </tr>
 
                         </thead>
@@ -791,11 +908,17 @@
                         <thead>
 
                             <tr>
+
                                 <th>#</th>
+
                                 <th>Student Number</th>
+
                                 <th>Username</th>
+
                                 <th>Section</th>
+
                                 <th>Role</th>
+
                             </tr>
 
                         </thead>
@@ -834,12 +957,12 @@
                 Available Books
             </button>
 
-            <button onclick="showStudentSection('myBooks')">
-                My Borrowed Books
-            </button>
-
             <button onclick="showStudentSection('suggestions')">
                 Book Suggestions
+            </button>
+
+            <button onclick="showStudentSection('myBooks')">
+                My Borrowed Books
             </button>
 
             <button
@@ -864,31 +987,41 @@
                     <span id="studentName"></span>!
                 </h1>
 
-                <div class="dashboard-cards">
+                <div class="student-details">
 
-                    <div class="card">
-                        <h3>Available Books</h3>
-                        <p id="studentAvailableBooks">20</p>
-                    </div>
+                    <p>
+                        <strong>Student Number:</strong>
+                        <span id="studentNumberDisplay"></span>
+                    </p>
 
-                    <div class="card">
-                        <h3>My Borrowed Books</h3>
-                        <p id="studentBorrowedBooks">0</p>
-                    </div>
+                    <p>
+                        <strong>Section:</strong>
+                        <span id="studentSectionDisplay"></span>
+                    </p>
 
                 </div>
 
+                <div class="dashboard-cards">
 
-                <!-- SUGGESTIONS -->
+                    <div class="card">
 
-                <div class="suggestion-section">
+                        <h3>Available Books</h3>
 
-                    <h2>Book Suggestions</h2>
+                        <p id="studentAvailableBooks">
+                            20
+                        </p>
 
-                    <div
-                        id="homeGenreList"
-                        class="genre-list"
-                    ></div>
+                    </div>
+
+                    <div class="card">
+
+                        <h3>My Borrowed Books</h3>
+
+                        <p id="studentBorrowedBooks">
+                            0
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -912,7 +1045,60 @@
             </section>
 
 
-            <!-- MY BOOKS -->
+            <!-- =========================================
+                 BOOK SUGGESTIONS
+            ========================================= -->
+
+            <section
+                id="suggestions"
+                class="hidden"
+            >
+
+                <h1>Book Suggestions</h1>
+
+                <p class="suggestion-intro">
+                    Browse our suggested books by genre.
+                    Select a genre folder to view the books under it.
+                </p>
+
+                <!-- GENRE FOLDERS -->
+
+                <div
+                    id="genreFolders"
+                    class="genre-grid"
+                ></div>
+
+
+                <!-- BOOKS INSIDE GENRE -->
+
+                <div
+                    id="genreBooks"
+                    class="genre-books hidden"
+                >
+
+                    <div class="genre-header">
+
+                        <h2 id="selectedGenreTitle">
+                            Genre
+                        </h2>
+
+                        <button onclick="closeGenre()">
+                            Back to Genres
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="genreBookList"
+                        class="book-list"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MY BORROWED BOOKS -->
 
             <section
                 id="myBooks"
@@ -925,44 +1111,6 @@
                     id="studentBorrowedList"
                     class="book-list"
                 ></div>
-
-            </section>
-
-
-            <!-- SUGGESTIONS -->
-
-            <section
-                id="suggestions"
-                class="hidden"
-            >
-
-                <h1>Book Suggestions</h1>
-
-                <div
-                    id="genreList"
-                    class="genre-list"
-                ></div>
-
-                <div
-                    id="genreBooks"
-                    class="genre-books hidden"
-                >
-
-                    <button
-                        class="close-genre-button"
-                        onclick="closeGenre()"
-                    >
-                        Back to Genres
-                    </button>
-
-                    <h2 id="selectedGenreTitle"></h2>
-
-                    <div
-                        id="genreBookList"
-                        class="book-list"
-                    ></div>
-
-                </div>
 
             </section>
 
@@ -997,17 +1145,27 @@
 
 
         /*
-           Default admin remains functional.
-           Its username and password are NOT displayed
-           anywhere on the login page.
+           Create admin account silently.
+
+           The account exists for the system,
+           but its password is NOT displayed
+           on the login page.
         */
 
-        if (!users.some(user => user.username === "admin")) {
+        if (
+            !users.some(
+                user => user.username === "admin"
+            )
+        ) {
 
             users.push({
+
                 username: "admin",
+
                 password: "admin123",
+
                 role: "admin"
+
             });
 
             localStorage.setItem(
@@ -1018,7 +1176,7 @@
 
 
         /* =========================================
-           BOOKS WITH GENRES
+           BOOK DATABASE
         ========================================= */
 
         const defaultBooks = [
@@ -1118,14 +1276,14 @@
                 id: 14,
                 title: "Jane Eyre",
                 author: "Charlotte Brontë",
-                genre: "Romance"
+                genre: "Classic"
             },
 
             {
                 id: 15,
                 title: "Animal Farm",
                 author: "George Orwell",
-                genre: "Dystopian"
+                genre: "Political Fiction"
             },
 
             {
@@ -1160,7 +1318,7 @@
                 id: 20,
                 title: "Charlotte's Web",
                 author: "E.B. White",
-                genre: "Children's"
+                genre: "Children's Literature"
             }
 
         ];
@@ -1175,16 +1333,27 @@
         );
 
 
+        /*
+           If the existing database is missing,
+           create all books.
+        */
+
         if (!books || books.length === 0) {
 
             books = defaultBooks.map(book => {
 
                 return {
+
                     ...book,
+
                     available: true,
+
                     borrowedBy: null,
+
                     dateBorrowed: null,
+
                     returnDate: null
+
                 };
 
             });
@@ -1194,8 +1363,8 @@
 
 
         /*
-           Add genre to old saved books if the browser
-           already contains an older version of the system.
+           Make sure older saved books receive
+           the new genre information.
         */
 
         books.forEach(book => {
@@ -1205,8 +1374,13 @@
                     item => item.id === book.id
                 );
 
-            if (defaultBook && !book.genre) {
-                book.genre = defaultBook.genre;
+            if (
+                defaultBook &&
+                !book.genre
+            ) {
+
+                book.genre =
+                    defaultBook.genre;
             }
 
         });
@@ -1232,11 +1406,13 @@
 
             showLogin();
 
+
             if (role === "admin") {
 
                 document
                     .getElementById("loginTitle")
-                    .textContent = "Admin Login";
+                    .textContent =
+                    "Admin Login";
 
                 document
                     .getElementById("selectedRoleText")
@@ -1251,7 +1427,8 @@
 
                 document
                     .getElementById("loginTitle")
-                    .textContent = "Student Login";
+                    .textContent =
+                    "Student Login";
 
                 document
                     .getElementById("selectedRoleText")
@@ -1261,12 +1438,14 @@
                 document
                     .getElementById("registerSwitch")
                     .classList.remove("hidden");
+
             }
+
         }
 
 
         /* =========================================
-           BACK TO ROLE
+           BACK TO ROLE SELECTION
         ========================================= */
 
         function backToRoleSelection() {
@@ -1279,6 +1458,17 @@
                 .getElementById("rolePage")
                 .classList.remove("hidden");
 
+            clearLoginFields();
+
+        }
+
+
+        /* =========================================
+           CLEAR LOGIN
+        ========================================= */
+
+        function clearLoginFields() {
+
             document
                 .getElementById("loginUsername")
                 .value = "";
@@ -1286,6 +1476,7 @@
             document
                 .getElementById("loginPassword")
                 .value = "";
+
         }
 
 
@@ -1302,6 +1493,7 @@
             document
                 .getElementById("loginForm")
                 .classList.remove("hidden");
+
         }
 
 
@@ -1311,8 +1503,12 @@
 
         function showRegister() {
 
-            if (selectedRole !== "student") {
+            if (
+                selectedRole !== "student"
+            ) {
+
                 return;
+
             }
 
             document
@@ -1322,36 +1518,48 @@
             document
                 .getElementById("registerForm")
                 .classList.remove("hidden");
+
         }
 
 
         /* =========================================
-           REGISTER
+           REGISTER STUDENT
         ========================================= */
 
         function register() {
 
             const studentNumber =
                 document
-                    .getElementById("registerStudentNumber")
+                    .getElementById(
+                        "registerStudentNumber"
+                    )
                     .value
                     .trim();
+
 
             const username =
                 document
-                    .getElementById("registerUsername")
+                    .getElementById(
+                        "registerUsername"
+                    )
                     .value
                     .trim();
+
 
             const section =
                 document
-                    .getElementById("registerSection")
+                    .getElementById(
+                        "registerSection"
+                    )
                     .value
                     .trim();
 
+
             const password =
                 document
-                    .getElementById("registerPassword")
+                    .getElementById(
+                        "registerPassword"
+                    )
                     .value;
 
 
@@ -1367,18 +1575,22 @@
                 );
 
                 return;
+
             }
 
 
             users = JSON.parse(
-                localStorage.getItem("libraryUsers")
+                localStorage.getItem(
+                    "libraryUsers"
+                )
             ) || [];
 
 
             const usernameExists =
                 users.some(
                     user =>
-                        user.username.toLowerCase() ===
+                        user.username
+                            .toLowerCase() ===
                         username.toLowerCase()
                 );
 
@@ -1390,6 +1602,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -1408,16 +1621,23 @@
                 );
 
                 return;
+
             }
 
 
             users.push({
 
                 username: username,
+
                 password: password,
+
                 role: "student",
-                studentNumber: studentNumber,
-                section: section
+
+                studentNumber:
+                    studentNumber,
+
+                section:
+                    section
 
             });
 
@@ -1434,23 +1654,32 @@
 
 
             document
-                .getElementById("registerStudentNumber")
+                .getElementById(
+                    "registerStudentNumber"
+                )
                 .value = "";
 
             document
-                .getElementById("registerUsername")
+                .getElementById(
+                    "registerUsername"
+                )
                 .value = "";
 
             document
-                .getElementById("registerSection")
+                .getElementById(
+                    "registerSection"
+                )
                 .value = "";
 
             document
-                .getElementById("registerPassword")
+                .getElementById(
+                    "registerPassword"
+                )
                 .value = "";
 
 
             showLogin();
+
         }
 
 
@@ -1462,27 +1691,39 @@
 
             const username =
                 document
-                    .getElementById("loginUsername")
+                    .getElementById(
+                        "loginUsername"
+                    )
                     .value
                     .trim();
 
+
             const password =
                 document
-                    .getElementById("loginPassword")
+                    .getElementById(
+                        "loginPassword"
+                    )
                     .value;
 
 
             users = JSON.parse(
-                localStorage.getItem("libraryUsers")
+                localStorage.getItem(
+                    "libraryUsers"
+                )
             ) || [];
 
 
             const user =
                 users.find(
                     account =>
-                        account.username === username &&
-                        account.password === password &&
-                        account.role === selectedRole
+                        account.username ===
+                        username &&
+
+                        account.password ===
+                        password &&
+
+                        account.role ===
+                        selectedRole
                 );
 
 
@@ -1493,13 +1734,16 @@
                 );
 
                 return;
+
             }
 
 
             currentUser = user;
 
 
-            if (user.role === "admin") {
+            if (
+                user.role === "admin"
+            ) {
 
                 openAdminDashboard();
 
@@ -1508,6 +1752,7 @@
                 openStudentDashboard();
 
             }
+
         }
 
 
@@ -1518,12 +1763,18 @@
         function openAdminDashboard() {
 
             document
-                .getElementById("authPage")
+                .getElementById(
+                    "authPage"
+                )
                 .classList.add("hidden");
 
+
             document
-                .getElementById("adminDashboard")
+                .getElementById(
+                    "adminDashboard"
+                )
                 .classList.remove("hidden");
+
 
             updateAdminDashboard();
 
@@ -1532,6 +1783,7 @@
             displayBorrowRecords();
 
             displayRegisteredAccounts();
+
         }
 
 
@@ -1543,44 +1795,62 @@
 
             const available =
                 books.filter(
-                    book => book.available
+                    book =>
+                        book.available
                 ).length;
+
 
             const borrowed =
                 books.filter(
-                    book => !book.available
+                    book =>
+                        !book.available
                 ).length;
+
 
             const students =
                 users.filter(
-                    user => user.role === "student"
+                    user =>
+                        user.role ===
+                        "student"
                 ).length;
 
 
             document
-                .getElementById("adminTotalBooks")
+                .getElementById(
+                    "adminTotalBooks"
+                )
                 .textContent =
                 books.length;
 
+
             document
-                .getElementById("adminAvailableBooks")
+                .getElementById(
+                    "adminAvailableBooks"
+                )
                 .textContent =
                 available;
 
+
             document
-                .getElementById("adminBorrowedBooks")
+                .getElementById(
+                    "adminBorrowedBooks"
+                )
                 .textContent =
                 borrowed;
 
+
             document
-                .getElementById("adminTotalStudents")
+                .getElementById(
+                    "adminTotalStudents"
+                )
                 .textContent =
                 students;
+
         }
 
 
         /* =========================================
-           ADMIN BOOKS
+           ADMIN - DISPLAY BOOKS
         ========================================= */
 
         function displayAdminBooks() {
@@ -1590,76 +1860,86 @@
                     "adminBookList"
                 );
 
+
             list.innerHTML = "";
 
 
-            books.forEach(book => {
+            /*
+               Sort books alphabetically
+               according to genre.
+            */
 
-                const status =
-                    book.available
-                        ? "Available"
-                        : "Borrowed";
-
-                const statusClass =
-                    book.available
-                        ? "status-available"
-                        : "status-borrowed";
+            const sortedBooks =
+                [...books].sort(
+                    (a, b) =>
+                        a.genre.localeCompare(
+                            b.genre
+                        )
+                );
 
 
-                list.innerHTML += `
+            sortedBooks.forEach(
+                book => {
 
-                    <div class="book-card">
+                    const status =
+                        book.available
+                            ? "Available"
+                            : "Borrowed";
 
-                        <h3>
-                            ${book.title}
-                        </h3>
 
-                        <p>
-                            <strong>Author:</strong>
-                            ${book.author}
-                        </p>
+                    list.innerHTML += `
 
-                        <p>
-                            <strong>Genre:</strong>
-                            ${book.genre}
-                        </p>
+                        <div class="book-card">
 
-                        <p>
-                            <strong>Status:</strong>
+                            <h3>
+                                ${book.title}
+                            </h3>
 
-                            <span
-                                class="admin-book-status ${statusClass}"
-                            >
+                            <p>
+                                <strong>Author:</strong>
+                                ${book.author}
+                            </p>
+
+                            <p>
+                                <strong>Genre:</strong>
+                                ${book.genre}
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
                                 ${status}
-                            </span>
+                            </p>
 
-                        </p>
+                            ${
+                                !book.available
+                                ? `
 
-                        ${
-                            !book.available
-                            ? `
-                                <p>
-                                    <strong>Borrowed By:</strong>
-                                    ${book.borrowedBy}
-                                </p>
+                                    <p>
+                                        <strong>Borrowed By:</strong>
+                                        ${book.borrowedBy}
+                                    </p>
 
-                                <p>
-                                    <strong>Due:</strong>
-                                    ${book.returnDate}
-                                </p>
-                            `
-                            : ""
-                        }
+                                    <p>
+                                        <strong>Due:</strong>
+                                        ${book.returnDate}
+                                    </p>
 
-                    </div>
+                                `
+                                : ""
+                            }
 
-                `;
-            });
+                        </div>
+
+                    `;
+
+                }
+            );
+
         }
 
 
         /* =========================================
-           BORROW RECORDS
+           ADMIN - BORROW RECORDS
         ========================================= */
 
         function displayBorrowRecords() {
@@ -1669,92 +1949,102 @@
                     "borrowTable"
                 );
 
+
             table.innerHTML = "";
 
 
             const borrowedBooks =
                 books.filter(
                     book =>
-                        book.borrowedBy !== null
+                        book.borrowedBy !==
+                        null
                 );
 
 
-            if (borrowedBooks.length === 0) {
+            if (
+                borrowedBooks.length === 0
+            ) {
 
                 table.innerHTML = `
 
                     <tr>
+
                         <td colspan="7">
                             No books are currently borrowed.
                         </td>
+
                     </tr>
 
                 `;
 
                 return;
+
             }
 
 
-            borrowedBooks.forEach(book => {
+            borrowedBooks.forEach(
+                book => {
 
-                const student =
-                    users.find(
-                        user =>
-                            user.username ===
-                            book.borrowedBy
-                    );
+                    const student =
+                        users.find(
+                            user =>
+                                user.username ===
+                                book.borrowedBy
+                        );
 
 
-                table.innerHTML += `
+                    table.innerHTML += `
 
-                    <tr>
+                        <tr>
 
-                        <td>
-                            ${book.borrowedBy}
-                        </td>
+                            <td>
+                                ${
+                                    student
+                                        ? student.studentNumber
+                                        : "N/A"
+                                }
+                            </td>
 
-                        <td>
-                            ${
-                                student
-                                    ? student.studentNumber || "N/A"
-                                    : "N/A"
-                            }
-                        </td>
+                            <td>
+                                ${book.borrowedBy}
+                            </td>
 
-                        <td>
-                            ${
-                                student
-                                    ? student.section || "N/A"
-                                    : "N/A"
-                            }
-                        </td>
+                            <td>
+                                ${
+                                    student
+                                        ? student.section
+                                        : "N/A"
+                                }
+                            </td>
 
-                        <td>
-                            ${book.title}
-                        </td>
+                            <td>
+                                ${book.title}
+                            </td>
 
-                        <td>
-                            ${book.dateBorrowed}
-                        </td>
+                            <td>
+                                ${book.dateBorrowed}
+                            </td>
 
-                        <td>
-                            ${book.returnDate}
-                        </td>
+                            <td>
+                                ${book.returnDate}
+                            </td>
 
-                        <td class="borrowed">
-                            Borrowed
-                        </td>
+                            <td class="borrowed">
+                                Borrowed
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                `;
-            });
+                    `;
+
+                }
+            );
+
         }
 
 
         /* =========================================
-           REGISTERED ACCOUNTS
-           PASSWORDS ARE NOT DISPLAYED
+           ADMIN - REGISTERED ACCOUNTS
         ========================================= */
 
         function displayRegisteredAccounts() {
@@ -1764,22 +2054,28 @@
                     "accountsTable"
                 );
 
+
             table.innerHTML = "";
 
 
             users = JSON.parse(
-                localStorage.getItem("libraryUsers")
+                localStorage.getItem(
+                    "libraryUsers"
+                )
             ) || [];
 
 
             const students =
                 users.filter(
                     user =>
-                        user.role === "student"
+                        user.role ===
+                        "student"
                 );
 
 
-            if (students.length === 0) {
+            if (
+                students.length === 0
+            ) {
 
                 table.innerHTML = `
 
@@ -1794,11 +2090,17 @@
                 `;
 
                 return;
+
             }
 
 
             students.forEach(
                 (student, index) => {
+
+                    /*
+                       Password is intentionally NOT
+                       displayed to the administrator.
+                    */
 
                     table.innerHTML += `
 
@@ -1809,7 +2111,7 @@
                             </td>
 
                             <td>
-                                ${student.studentNumber || "N/A"}
+                                ${student.studentNumber}
                             </td>
 
                             <td>
@@ -1817,7 +2119,7 @@
                             </td>
 
                             <td>
-                                ${student.section || "N/A"}
+                                ${student.section}
                             </td>
 
                             <td>
@@ -1827,8 +2129,10 @@
                         </tr>
 
                     `;
+
                 }
             );
+
         }
 
 
@@ -1841,25 +2145,76 @@
             const sections = [
 
                 "adminHome",
+
                 "adminBooks",
+
                 "borrowRecords",
+
                 "registeredAccounts"
 
             ];
 
 
-            sections.forEach(id => {
+            sections.forEach(
+                id => {
 
-                document
-                    .getElementById(id)
-                    .classList.add("hidden");
+                    document
+                        .getElementById(id)
+                        .classList.add(
+                            "hidden"
+                        );
 
-            });
+                }
+            );
 
 
             document
                 .getElementById(section)
-                .classList.remove("hidden");
+                .classList.remove(
+                    "hidden"
+                );
+
+
+            /*
+               Refresh information when
+               the administrator opens a section.
+            */
+
+            if (
+                section === "adminHome"
+            ) {
+
+                updateAdminDashboard();
+
+            }
+
+
+            if (
+                section === "adminBooks"
+            ) {
+
+                displayAdminBooks();
+
+            }
+
+
+            if (
+                section === "borrowRecords"
+            ) {
+
+                displayBorrowRecords();
+
+            }
+
+
+            if (
+                section === "registeredAccounts"
+            ) {
+
+                displayRegisteredAccounts();
+
+            }
+
         }
 
 
@@ -1870,18 +2225,47 @@
         function openStudentDashboard() {
 
             document
-                .getElementById("authPage")
-                .classList.add("hidden");
+                .getElementById(
+                    "authPage"
+                )
+                .classList.add(
+                    "hidden"
+                );
+
 
             document
-                .getElementById("studentDashboard")
-                .classList.remove("hidden");
+                .getElementById(
+                    "studentDashboard"
+                )
+                .classList.remove(
+                    "hidden"
+                );
 
 
             document
-                .getElementById("studentName")
+                .getElementById(
+                    "studentName"
+                )
                 .textContent =
                 currentUser.username;
+
+
+            document
+                .getElementById(
+                    "studentNumberDisplay"
+                )
+                .textContent =
+                currentUser.studentNumber ||
+                "Not available";
+
+
+            document
+                .getElementById(
+                    "studentSectionDisplay"
+                )
+                .textContent =
+                currentUser.section ||
+                "Not available";
 
 
             updateStudentDashboard();
@@ -1890,9 +2274,8 @@
 
             displayStudentBorrowedBooks();
 
-            displayGenres();
+            displayGenreFolders();
 
-            displayHomeGenres();
         }
 
 
@@ -1904,7 +2287,8 @@
 
             const available =
                 books.filter(
-                    book => book.available
+                    book =>
+                        book.available
                 ).length;
 
 
@@ -1917,20 +2301,25 @@
 
 
             document
-                .getElementById("studentAvailableBooks")
+                .getElementById(
+                    "studentAvailableBooks"
+                )
                 .textContent =
                 available;
 
 
             document
-                .getElementById("studentBorrowedBooks")
+                .getElementById(
+                    "studentBorrowedBooks"
+                )
                 .textContent =
                 borrowed;
+
         }
 
 
         /* =========================================
-           AVAILABLE BOOKS
+           STUDENT - AVAILABLE BOOKS
         ========================================= */
 
         function displayStudentBooks() {
@@ -1944,103 +2333,344 @@
             list.innerHTML = "";
 
 
+            /*
+               Sort available books
+               according to genre.
+            */
+
             const availableBooks =
-                books.filter(
-                    book => book.available
-                );
+                books
+                    .filter(
+                        book =>
+                            book.available
+                    )
+                    .sort(
+                        (a, b) =>
+                            a.genre.localeCompare(
+                                b.genre
+                            )
+                    );
 
 
-            if (availableBooks.length === 0) {
+            if (
+                availableBooks.length === 0
+            ) {
 
                 list.innerHTML =
                     "<p>No books are currently available.</p>";
 
                 return;
+
             }
 
 
-            availableBooks.forEach(book => {
+            availableBooks.forEach(
+                book => {
 
-                list.innerHTML += `
+                    list.innerHTML += `
 
-                    <div class="book-card">
+                        <div class="book-card">
 
-                        <h3>
-                            ${book.title}
-                        </h3>
+                            <h3>
+                                ${book.title}
+                            </h3>
 
-                        <p>
-                            <strong>Author:</strong>
-                            ${book.author}
-                        </p>
+                            <p>
+                                <strong>Author:</strong>
+                                ${book.author}
+                            </p>
 
-                        <p>
-                            <strong>Genre:</strong>
-                            ${book.genre}
-                        </p>
+                            <p>
+                                <strong>Genre:</strong>
+                                ${book.genre}
+                            </p>
 
-                        <p class="available">
-                            Available
-                        </p>
+                            <p class="available">
+                                Available
+                            </p>
+
+                            <button
+                                onclick="borrowBook(${book.id})"
+                            >
+                                Borrow Book
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+        /* =========================================
+           GENRE FOLDERS
+        ========================================= */
+
+        function displayGenreFolders() {
+
+            const folderContainer =
+                document.getElementById(
+                    "genreFolders"
+                );
+
+
+            folderContainer.innerHTML = "";
+
+
+            const genres =
+                [...new Set(
+                    books.map(
+                        book =>
+                            book.genre
+                    )
+                )].sort();
+
+
+            genres.forEach(
+                genre => {
+
+                    const genreBooks =
+                        books.filter(
+                            book =>
+                                book.genre ===
+                                genre
+                        );
+
+
+                    folderContainer.innerHTML += `
 
                         <button
-                            onclick="borrowBook(${book.id})"
+                            class="genre-folder"
+                            onclick="openGenre('${escapeQuotes(genre)}')"
                         >
-                            Borrow Book
+
+                            <h3>
+                                ${genre}
+                            </h3>
+
+                            <p>
+                                ${genreBooks.length}
+                                suggested book(s)
+                            </p>
+
                         </button>
 
-                    </div>
+                    `;
 
-                `;
-            });
+                }
+            );
+
+        }
+
+
+        /* =========================================
+           ESCAPE QUOTES
+        ========================================= */
+
+        function escapeQuotes(text) {
+
+            return text
+                .replace(/'/g, "\\'")
+                .replace(/"/g, "&quot;");
+
+        }
+
+
+        /* =========================================
+           OPEN GENRE
+        ========================================= */
+
+        function openGenre(genre) {
+
+            document
+                .getElementById(
+                    "genreFolders"
+                )
+                .classList.add(
+                    "hidden"
+                );
+
+
+            document
+                .getElementById(
+                    "genreBooks"
+                )
+                .classList.remove(
+                    "hidden"
+                );
+
+
+            document
+                .getElementById(
+                    "selectedGenreTitle"
+                )
+                .textContent =
+                genre;
+
+
+            const list =
+                document.getElementById(
+                    "genreBookList"
+                );
+
+
+            list.innerHTML = "";
+
+
+            const genreBooks =
+                books.filter(
+                    book =>
+                        book.genre ===
+                        genre
+                );
+
+
+            genreBooks.forEach(
+                book => {
+
+                    const status =
+                        book.available
+                            ? "Available"
+                            : "Currently Borrowed";
+
+
+                    list.innerHTML += `
+
+                        <div class="book-card">
+
+                            <h3>
+                                ${book.title}
+                            </h3>
+
+                            <p>
+                                <strong>Author:</strong>
+                                ${book.author}
+                            </p>
+
+                            <p>
+                                <strong>Genre:</strong>
+                                ${book.genre}
+                            </p>
+
+                            <p class="${
+                                book.available
+                                    ? "available"
+                                    : "borrowed"
+                            }">
+
+                                ${status}
+
+                            </p>
+
+                            ${
+                                book.available
+                                ? `
+
+                                    <button
+                                        onclick="borrowBook(${book.id})"
+                                    >
+                                        Borrow Book
+                                    </button>
+
+                                `
+                                : ""
+                            }
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+        /* =========================================
+           CLOSE GENRE
+        ========================================= */
+
+        function closeGenre() {
+
+            document
+                .getElementById(
+                    "genreBooks"
+                )
+                .classList.add(
+                    "hidden"
+                );
+
+
+            document
+                .getElementById(
+                    "genreFolders"
+                )
+                .classList.remove(
+                    "hidden"
+                );
+
         }
 
 
         /* =========================================
            BORROW BOOK
-           4-DAY LIMIT
         ========================================= */
 
         function borrowBook(id) {
 
             const book =
                 books.find(
-                    book => book.id === id
+                    book =>
+                        book.id === id
                 );
 
 
-            if (!book || !book.available) {
+            if (
+                !book ||
+                !book.available
+            ) {
 
                 alert(
                     "This book is no longer available."
                 );
 
                 return;
+
             }
 
 
-            const today = new Date();
-
-            const dueDate = new Date();
-
-
             /*
-                Borrowing period:
-                4 days
+               Borrowing period:
+               FOUR DAYS
             */
+
+            const today =
+                new Date();
+
+
+            const dueDate =
+                new Date();
+
 
             dueDate.setDate(
                 today.getDate() + 4
             );
 
 
-            book.available = false;
+            book.available =
+                false;
+
 
             book.borrowedBy =
                 currentUser.username;
 
+
             book.dateBorrowed =
                 formatDate(today);
+
 
             book.returnDate =
                 formatDate(dueDate);
@@ -2051,15 +2681,23 @@
 
             alert(
                 "Book borrowed successfully!\n\n" +
+
                 "Book: " +
                 book.title +
+
                 "\n" +
+
                 "Return Date: " +
-                book.returnDate
+                book.returnDate +
+
+                "\n\n" +
+
+                "Borrowing period: 4 days."
             );
 
 
             refreshStudent();
+
         }
 
 
@@ -2077,11 +2715,12 @@
                     day: "numeric"
                 }
             );
+
         }
 
 
         /* =========================================
-           MY BORROWED BOOKS
+           STUDENT - MY BOOKS
         ========================================= */
 
         function displayStudentBorrowedBooks() {
@@ -2103,7 +2742,9 @@
                 );
 
 
-            if (myBooks.length === 0) {
+            if (
+                myBooks.length === 0
+            ) {
 
                 list.innerHTML = `
 
@@ -2114,54 +2755,59 @@
                 `;
 
                 return;
+
             }
 
 
-            myBooks.forEach(book => {
+            myBooks.forEach(
+                book => {
 
-                list.innerHTML += `
+                    list.innerHTML += `
 
-                    <div class="book-card">
+                        <div class="book-card">
 
-                        <h3>
-                            ${book.title}
-                        </h3>
+                            <h3>
+                                ${book.title}
+                            </h3>
 
-                        <p>
-                            <strong>Author:</strong>
-                            ${book.author}
-                        </p>
+                            <p>
+                                <strong>Author:</strong>
+                                ${book.author}
+                            </p>
 
-                        <p>
-                            <strong>Genre:</strong>
-                            ${book.genre}
-                        </p>
+                            <p>
+                                <strong>Genre:</strong>
+                                ${book.genre}
+                            </p>
 
-                        <p>
-                            <strong>Date Borrowed:</strong>
-                            ${book.dateBorrowed}
-                        </p>
+                            <p>
+                                <strong>Date Borrowed:</strong>
+                                ${book.dateBorrowed}
+                            </p>
 
-                        <p>
-                            <strong>Return Date:</strong>
-                            ${book.returnDate}
-                        </p>
+                            <p>
+                                <strong>Return Date:</strong>
+                                ${book.returnDate}
+                            </p>
 
-                        <p class="borrowed">
-                            Currently Borrowed
-                        </p>
+                            <p class="borrowed">
+                                Currently Borrowed
+                            </p>
 
-                        <button
-                            class="return-button"
-                            onclick="returnBook(${book.id})"
-                        >
-                            Return Book
-                        </button>
+                            <button
+                                class="return-button"
+                                onclick="returnBook(${book.id})"
+                            >
+                                Return Book
+                            </button>
 
-                    </div>
+                        </div>
 
-                `;
-            });
+                    `;
+
+                }
+            );
+
         }
 
 
@@ -2173,12 +2819,15 @@
 
             const book =
                 books.find(
-                    book => book.id === id
+                    book =>
+                        book.id === id
                 );
 
 
             if (!book) {
+
                 return;
+
             }
 
 
@@ -2189,17 +2838,26 @@
 
 
             if (!confirmReturn) {
+
                 return;
+
             }
 
 
-            book.available = true;
+            book.available =
+                true;
 
-            book.borrowedBy = null;
 
-            book.dateBorrowed = null;
+            book.borrowedBy =
+                null;
 
-            book.returnDate = null;
+
+            book.dateBorrowed =
+                null;
+
+
+            book.returnDate =
+                null;
 
 
             saveBooks();
@@ -2211,246 +2869,7 @@
 
 
             refreshStudent();
-        }
 
-
-        /* =========================================
-           CREATE GENRE LIST
-        ========================================= */
-
-        function getGenres() {
-
-            return [
-                ...new Set(
-                    books.map(
-                        book => book.genre
-                    )
-                )
-            ].sort();
-        }
-
-
-        /* =========================================
-           DISPLAY GENRE FOLDERS
-        ========================================= */
-
-        function displayGenres() {
-
-            const list =
-                document.getElementById(
-                    "genreList"
-                );
-
-
-            list.innerHTML = "";
-
-
-            const genres = getGenres();
-
-
-            genres.forEach(genre => {
-
-                const count =
-                    books.filter(
-                        book =>
-                            book.genre === genre
-                    ).length;
-
-
-                list.innerHTML += `
-
-                    <div
-                        class="genre-folder"
-                        onclick="openGenre('${genre}')"
-                    >
-
-                        <h3>
-                            ${genre}
-                        </h3>
-
-                        <p>
-                            ${count} book(s)
-                        </p>
-
-                    </div>
-
-                `;
-            });
-        }
-
-
-        /* =========================================
-           HOME GENRE LIST
-        ========================================= */
-
-        function displayHomeGenres() {
-
-            const list =
-                document.getElementById(
-                    "homeGenreList"
-                );
-
-
-            list.innerHTML = "";
-
-
-            const genres = getGenres();
-
-
-            genres.forEach(genre => {
-
-                const count =
-                    books.filter(
-                        book =>
-                            book.genre === genre
-                    ).length;
-
-
-                list.innerHTML += `
-
-                    <div
-                        class="genre-folder"
-                        onclick="openHomeGenre('${genre}')"
-                    >
-
-                        <h3>
-                            ${genre}
-                        </h3>
-
-                        <p>
-                            ${count} book(s)
-                        </p>
-
-                    </div>
-
-                `;
-            });
-        }
-
-
-        /* =========================================
-           OPEN GENRE
-        ========================================= */
-
-        function openGenre(genre) {
-
-            document
-                .getElementById("genreList")
-                .classList.add("hidden");
-
-
-            document
-                .getElementById("genreBooks")
-                .classList.remove("hidden");
-
-
-            document
-                .getElementById("selectedGenreTitle")
-                .textContent =
-                genre + " Books";
-
-
-            displayGenreBooks(genre);
-        }
-
-
-        /* =========================================
-           OPEN GENRE FROM HOME
-        ========================================= */
-
-        function openHomeGenre(genre) {
-
-            showStudentSection("suggestions");
-
-            openGenre(genre);
-        }
-
-
-        /* =========================================
-           DISPLAY BOOKS INSIDE GENRE
-        ========================================= */
-
-        function displayGenreBooks(genre) {
-
-            const list =
-                document.getElementById(
-                    "genreBookList"
-                );
-
-
-            list.innerHTML = "";
-
-
-            const genreBooks =
-                books.filter(
-                    book =>
-                        book.genre === genre
-                );
-
-
-            genreBooks.forEach(book => {
-
-                const availability =
-                    book.available
-                        ? `
-                            <p class="available">
-                                Available
-                            </p>
-
-                            <button
-                                onclick="borrowBook(${book.id})"
-                            >
-                                Borrow Book
-                            </button>
-                          `
-                        : `
-                            <p class="borrowed">
-                                Currently Borrowed
-                            </p>
-                          `;
-
-
-                list.innerHTML += `
-
-                    <div class="book-card">
-
-                        <h3>
-                            ${book.title}
-                        </h3>
-
-                        <p>
-                            <strong>Author:</strong>
-                            ${book.author}
-                        </p>
-
-                        <p>
-                            <strong>Genre:</strong>
-                            ${book.genre}
-                        </p>
-
-                        ${availability}
-
-                    </div>
-
-                `;
-            });
-        }
-
-
-        /* =========================================
-           CLOSE GENRE
-        ========================================= */
-
-        function closeGenre() {
-
-            document
-                .getElementById("genreBooks")
-                .classList.add("hidden");
-
-
-            document
-                .getElementById("genreList")
-                .classList.remove("hidden");
         }
 
 
@@ -2463,43 +2882,60 @@
             const sections = [
 
                 "studentHome",
+
                 "availableBooks",
-                "myBooks",
-                "suggestions"
+
+                "suggestions",
+
+                "myBooks"
 
             ];
 
 
-            sections.forEach(id => {
+            sections.forEach(
+                id => {
 
-                document
-                    .getElementById(id)
-                    .classList.add("hidden");
+                    document
+                        .getElementById(id)
+                        .classList.add(
+                            "hidden"
+                        );
 
-            });
+                }
+            );
 
 
             document
                 .getElementById(section)
-                .classList.remove("hidden");
+                .classList.remove(
+                    "hidden"
+                );
 
 
-            /*
-                When opening suggestions directly,
-                show the genre folders first.
-            */
+            if (
+                section === "suggestions"
+            ) {
 
-            if (section === "suggestions") {
-
-                document
-                    .getElementById("genreList")
-                    .classList.remove("hidden");
+                displayGenreFolders();
 
                 document
-                    .getElementById("genreBooks")
-                    .classList.add("hidden");
+                    .getElementById(
+                        "genreFolders"
+                    )
+                    .classList.remove(
+                        "hidden"
+                    );
+
+                document
+                    .getElementById(
+                        "genreBooks"
+                    )
+                    .classList.add(
+                        "hidden"
+                    );
 
             }
+
         }
 
 
@@ -2513,6 +2949,7 @@
                 "libraryBooks",
                 JSON.stringify(books)
             );
+
         }
 
 
@@ -2528,9 +2965,8 @@
 
             displayStudentBorrowedBooks();
 
-            displayGenres();
+            displayGenreFolders();
 
-            displayHomeGenres();
         }
 
 
@@ -2540,37 +2976,48 @@
 
         function logout() {
 
-            currentUser = null;
+            currentUser =
+                null;
 
 
             document
-                .getElementById("adminDashboard")
-                .classList.add("hidden");
+                .getElementById(
+                    "adminDashboard"
+                )
+                .classList.add(
+                    "hidden"
+                );
 
 
             document
-                .getElementById("studentDashboard")
-                .classList.add("hidden");
+                .getElementById(
+                    "studentDashboard"
+                )
+                .classList.add(
+                    "hidden"
+                );
 
 
             document
-                .getElementById("authPage")
-                .classList.add("hidden");
+                .getElementById(
+                    "authPage"
+                )
+                .classList.add(
+                    "hidden"
+                );
 
 
             document
-                .getElementById("rolePage")
-                .classList.remove("hidden");
+                .getElementById(
+                    "rolePage"
+                )
+                .classList.remove(
+                    "hidden"
+                );
 
 
-            document
-                .getElementById("loginUsername")
-                .value = "";
+            clearLoginFields();
 
-
-            document
-                .getElementById("loginPassword")
-                .value = "";
         }
 
     </script>
